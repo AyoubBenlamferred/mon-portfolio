@@ -269,3 +269,76 @@ footer {
     gap: 1rem;
   }
 }
+
+/* MENU HAMBURGER - Responsive */
+
+#nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #00ffff;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+#nav-toggle:hover,
+#nav-toggle:focus {
+  color: #00cccc;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  #nav-toggle {
+    display: block;
+  }
+
+  nav ul.nav-menu {
+    flex-direction: column;
+    position: fixed;
+    top: 56px; /* même hauteur que nav */
+    right: 0;
+    background: #001f3f;
+    width: 220px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0 15px #00ffffaa;
+    border-radius: 0 0 0 10px;
+    display: none;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    z-index: 10001;
+  }
+
+  nav ul.nav-menu.visible {
+    display: flex;
+  }
+
+  nav ul.nav-menu li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Image responsive */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Sections ajustées sur mobile */
+
+@media (max-width: 768px) {
+  section {
+    margin: 2rem 1rem 4rem 1rem;
+    padding: 0 1rem;
+  }
+
+  #profil img {
+    float: none;
+    margin: 1rem auto 1.5rem auto;
+    display: block;
+  }
+}

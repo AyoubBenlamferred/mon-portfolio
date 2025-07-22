@@ -206,3 +206,44 @@ window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
 
 
+// Toggle menu hamburger
+const toggleButton = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+toggleButton.addEventListener('click', () => {
+  const expanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
+  toggleButton.setAttribute('aria-expanded', !expanded);
+  navMenu.classList.toggle('visible');
+});
+
+// Fermer menu quand on clique sur un lien (utile sur mobile)
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navMenu.classList.contains('visible')) {
+      navMenu.classList.remove('visible');
+      toggleButton.setAttribute('aria-expanded', false);
+    }
+  });
+});
+
+// Animation simple pour chaque section quand elle devient visible au scroll (ou via nav)
+const sections = document.querySelectorAll('section');
+
+function checkSections() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop < triggerBottom) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkSections);
+window.addEventListener('load', checkSections);
+
+// Ton code animation réseau ici (le même que tu as déjà, pas besoin de changer)
