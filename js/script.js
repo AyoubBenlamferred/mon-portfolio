@@ -206,17 +206,10 @@ window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
 
 
-// Gestion du menu hamburger responsive
-const hamburger = document.createElement('div');
-hamburger.classList.add('hamburger');
-hamburger.innerHTML = '<div></div><div></div><div></div>';
-
-const nav = document.querySelector('nav');
-nav.insertBefore(hamburger, nav.querySelector('ul'));
-
+const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('nav ul');
 
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navMenu.classList.toggle('active');
+  navMenu.classList.toggle('open');
 });
+
