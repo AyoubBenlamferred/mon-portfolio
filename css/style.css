@@ -250,69 +250,53 @@ footer {
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  /* Nav */
+  /* Ajuster le menu pour qu'il prenne moins de place */
   nav {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
     padding: 1rem;
   }
-
+  
   .nav-brand {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
-
+  
   nav ul {
     flex-direction: column;
     gap: 0.5rem;
     width: 100%;
     padding-left: 0;
   }
-
+  
   nav ul li {
     width: 100%;
   }
-
+  
   nav ul li a {
-    padding: 0.5rem 0;
     display: block;
+    padding: 0.5rem 0;
     width: 100%;
   }
-
-  /* Sections */
+  
+  /* Contenu section */
   section {
     margin: 2rem 1rem;
     padding: 0;
   }
-
+  
   section h2 {
     font-size: 1.5rem;
   }
-
-  section p {
+  
+  section p, section ul li {
     font-size: 1rem;
+    line-height: 1.5;
   }
-
-  #profil img {
-    float: none;
-    display: block;
-    margin: 1rem auto 1.5rem auto;
-    width: 150px;
-    height: 150px;
-  }
-
-  #contact form {
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  #networkCanvas {
-    height: 100px;
-  }
-
-  footer {
-    font-size: 0.8rem;
-    padding: 1rem;
+  
+  /* Empêcher défilement horizontal */
+  body, html {
+    overflow-x: hidden;
   }
 }
