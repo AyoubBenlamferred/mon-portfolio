@@ -93,7 +93,7 @@ nav ul li:hover a {
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
 }
 
-/* ✅ Soulignement sous lien actif */
+/* Soulignement sous lien actif */
 nav ul li.active a::after {
   content: '';
   position: absolute;
@@ -248,7 +248,7 @@ footer {
   user-select: none;
 }
 
-/* ✅ Responsive amélioré */
+/* Responsive */
 @media screen and (max-width: 768px) {
   /* Nav */
   nav {
@@ -280,6 +280,7 @@ footer {
     width: 100%;
   }
 
+  /* Sections */
   section {
     margin: 2rem 1rem;
     padding: 0;
@@ -296,7 +297,9 @@ footer {
   #profil img {
     float: none;
     display: block;
-    margin: 1rem auto;
+    margin: 1rem auto 1.5rem auto;
+    width: 150px;
+    height: 150px;
   }
 
   #contact form {
@@ -311,54 +314,5 @@ footer {
   footer {
     font-size: 0.8rem;
     padding: 1rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    padding: 1rem;
-  }
-  
-  .nav-brand {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-    padding-left: 0;
-  }
-  
-  nav ul li {
-    width: 100%;
-  }
-  
-  nav ul li a {
-    padding: 0.5rem 0;
-    display: block;
-    width: 100%;
-  }
-  
-  section {
-    margin: 2rem 1rem;
-    padding: 0;
-  }
-  
-  section h2 {
-    font-size: 1.5rem;
-  }
-  
-  section p {
-    font-size: 1rem;
-  }
-  
-  /* Ajuster tout ce qui peut déborder */
-  body, html {
-    overflow-x: hidden;
   }
 }
