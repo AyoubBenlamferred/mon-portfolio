@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Documentation - Ayoub Benlamferred</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../fav/favicon.ico" type="image/x-icon" />
+
+  <style>
+    /* Styles spécifiques à Documentation */
+
+    .doc-box {
+      background: #001f3f; /* foncé bleu */
+      border: 2px solid #00ffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      box-shadow: 0 0 20px #00ffff66;
+    }
+
+    .doc-box h3 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+      border-left: 4px solid #00ffff;
+      padding-left: 10px;
+      font-weight: 700;
+    }
+
+    .doc-box p,
+    .doc-box ul {
+      color: #a0c7d9;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .document-list li {
+      margin-bottom: 0.6rem;
+    }
+
+    .document-list a {
+      color: #22d8f8;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .document-list a:hover {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    .preview-box img {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 1rem auto 0 auto;
+      border-radius: 8px;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 25px #00ffffbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-brand">Ayoub Benlamferred</div>
+    <ul id="nav-menu">
+      <li><a href="accueil.html">Accueil</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="bts-sio.html">BTS SIO</a></li>
+      <li class="active"><a href="documentation.html">Documentation</a></li>
+      <li><a href="situation-professionnelle.html">Situation Professionnelle</a></li>
+      <li><a href="gestion-de-patrimoine.html">Gestion de patrimoine</a></li>
+      <li><a href="veille-technologique.html">Veille Technologique</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <canvas id="networkCanvas"></canvas>
+
+  <section id="documentation">
+    <h2>Documentation</h2>
+    <p>
+      La documentation est essentielle pour assurer la qualité, la maintenance et la transmission des connaissances dans tout projet informatique. Elle permet à l’équipe et aux utilisateurs finaux de comprendre et d’utiliser efficacement les solutions mises en place.
+    </p>
+
+    <div class="doc-box">
+      <h3>Types de documents produits</h3>
+      <ul>
+        <li><strong>Cahier des charges</strong> : description fonctionnelle et technique du projet.</li>
+        <li><strong>Guides d’installation et d’utilisation</strong> : pour accompagner les utilisateurs.</li>
+        <li><strong>Documentation technique</strong> : explications des choix techniques, architecture, schémas réseaux.</li>
+        <li><strong>Rapports de projet</strong> : bilans, analyses et retours d’expérience.</li>
+        <li><strong>Procédures de maintenance</strong> : étapes pour résoudre les incidents et maintenir le système.</li>
+      </ul>
+    </div>
+
+    <div class="doc-box">
+      <h3>Méthodologie et outils</h3>
+      <p>
+        Je privilégie une rédaction claire, structurée, avec un vocabulaire adapté au public cible. J’utilise des outils modernes et standards :
+      </p>
+      <ul>
+        <li>Microsoft Word pour les documents textuels</li>
+        <li>Markdown pour des documents légers et faciles à maintenir</li>
+        <li>Draw.io, Lucidchart ou Microsoft Visio pour les diagrammes et schémas</li>
+        <li>Git pour la gestion des versions et le partage en équipe</li>
+      </ul>
+    </div>
+
+    <div class="doc-box">
+      <h3>Documents à télécharger</h3>
+      <ul class="document-list">
+        <li><a href="../documents/cahier-des-charges.pdf" target="_blank" rel="noopener">Cahier des charges - Projet X (PDF)</a></li>
+        <li><a href="../documents/guide-installation.pdf" target="_blank" rel="noopener">Guide d'installation - Application Y (PDF)</a></li>
+        <li><a href="../documents/rapport-projet.pdf" target="_blank" rel="noopener">Rapport de projet - BTS SIO (PDF)</a></li>
+        <li><a href="../documents/schema-reseau.png" target="_blank" rel="noopener">Schéma réseau - Projet Z (Image)</a></li>
+        <li><a href="../documents/procedure-maintenance.pdf" target="_blank" rel="noopener">Procédure de maintenance (PDF)</a></li>
+        <li><a href="../documents/presentation-projet.pptx" target="_blank" rel="noopener">Présentation projet (PPTX)</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-box preview-box">
+      <h3>Aperçu d’un schéma réseau</h3>
+      <img src="../images/schema-reseau-mini.png" alt="Aperçu schéma réseau" />
+    </div>
+  </section>
+
+  <script src="../js/script.js"></script>
+
+  <footer>
+    Tous droits réservés © 2025 Ayoub Benlamferred
+  </footer>
+
+</body>
+
+</html>

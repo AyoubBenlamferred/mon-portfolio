@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Situation professionnelle - Ayoub Benlamferred</title>
+  <link rel="icon" href="../fav/favicon.ico" type="image/x-ico">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #121212;
+      color: #eee;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      color: #22d8f8;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #00ffff;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #0a192f, #001f3f);
+      box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
+      z-index: 10000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00ffff;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0 2rem;
+      height: 56px;
+    }
+
+    .nav-brand {
+      font-size: 1.5rem;
+      color: #00ffff;
+      font-weight: 700;
+      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+      white-space: nowrap;
+      cursor: default;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      position: relative;
+      font-size: 1.1rem;
+    }
+
+    nav ul li a {
+      font-size: 1.1rem;
+      color: #22d8f8;
+      text-shadow: 0 0 4px #00ffff;
+    }
+
+    nav ul li.active a,
+    nav ul li:hover a {
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+    }
+
+    nav ul li.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: #00ffff;
+      border-radius: 3px;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    /* CANVAS CONNEXION RESEAU */
+    #networkCanvas {
+      display: block;
+      background: #001520;
+      width: 100%;
+      height: 180px;
+      margin-top: 56px;
+      box-shadow: inset 0 0 30px #00ffff88;
+      border-top: 1px solid #00ffff;
+      border-bottom: 1px solid #00ffff;
+      cursor: pointer;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 960px;
+      margin: 3rem auto 5rem auto;
+      padding: 0 1.5rem;
+      scroll-margin-top: 70px;
+
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #22d8f8;
+      border-left: 5px solid #00ffff;
+      padding-left: 12px;
+    }
+
+    section p,
+    section ul {
+      color: #a0c7d9;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    section ul {
+      list-style: disc inside;
+      margin-top: 1rem;
+      color: #70cfff;
+    }
+
+    section ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Bloc encadré pour situation professionnelle */
+    .pro-block {
+      background-color: #001f3f;
+      border: 2px solid #00ffff;
+      border-radius: 12px;
+      padding: 20px 25px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 0 15px #00ffffaa;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .pro-block:hover {
+      box-shadow: 0 0 25px #00ffffee;
+    }
+
+    .pro-block h3 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+      border-left: 4px solid #22d8f8;
+      padding-left: 12px;
+      font-weight: 700;
+    }
+
+    .pro-block ul {
+      list-style: disc inside;
+      color: #70cfff;
+      font-size: 1.1rem;
+    }
+
+    .pro-block ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .pro-block p {
+      color: #a0c7d9;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #0a192f;
+      color: #00ffff;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      box-shadow: inset 0 1px 10px #00ffff44;
+      margin-top: auto;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-brand {
+        font-size: 1.3rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      section {
+        margin: 6rem 1rem 5rem 1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-brand">Ayoub Benlamferred</div>
+    <ul id="nav-menu">
+      <li><a href="accueil.html">Accueil</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="bts-sio.html">BTS SIO</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li class="active"><a href="situation-professionnelle.html">Situation Professionnelle</a></li>
+      <li><a href="gestion-de-patrimoine.html">Gestion de patrimoine</a></li>
+      <li><a href="veille-technologique.html">Veille Technologique</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <canvas id="networkCanvas"></canvas>
+
+  <section id="situation-pro">
+    <h2>Situation Professionnelle</h2>
+
+    <div class="pro-block">
+      <h3>Introduction</h3>
+      <p>Au cours de mon stage de 3 mois au sein de la société XYZ, spécialisée dans les services informatiques pour PME, j’ai
+        pu mettre en pratique mes connaissances en administration réseau et support utilisateur.</p>
+    </div>
+
+    <div class="pro-block">
+      <h3>Missions principales</h3>
+      <ul>
+        <li>Gestion du parc informatique : installation, configuration et maintenance des postes de travail.</li>
+        <li>Administration du réseau local (LAN) : configuration de routeurs et switches, gestion des accès.</li>
+        <li>Assistance aux utilisateurs : résolution des incidents, formation à l’utilisation de nouveaux logiciels.</li>
+        <li>Participation au déploiement d’une solution de sauvegarde automatisée.</li>
+      </ul>
+    </div>
+
+    <div class="pro-block">
+      <h3>Projets réalisés</h3>
+      <p>J’ai participé à la mise en place d’un système de gestion des accès via Active Directory, incluant la création de comptes
+        utilisateurs, la définition des droits et la sécurisation des ressources.</p>
+    </div>
+
+    <div class="pro-block">
+      <h3>Compétences développées</h3>
+      <ul>
+        <li>Administration réseau et sécurité.</li>
+        <li>Support technique et relation client.</li>
+        <li>Gestion de projet informatique en équipe.</li>
+        <li>Rédaction de documentation technique et guides utilisateurs.</li>
+      </ul>
+    </div>
+
+    <div class="pro-block">
+      <h3>Bilan personnel</h3>
+      <p>Cette expérience m’a permis de confirmer mon intérêt pour les réseaux et la gestion d’infrastructures informatiques. Elle
+        a renforcé mes compétences techniques et mon sens du service, tout en me préparant à intégrer une équipe professionnelle.
+      </p>
+    </div>
+  </section>
+
+  <script src="../js/script.js"></script>
+
+  <footer>
+    Tous droits réservés © 2025 Ayoub Benlamferred
+  </footer>
+
+</body>
+
+</html>
