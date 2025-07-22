@@ -391,3 +391,32 @@ footer {
     padding: 0 0.5rem;
   }
 }
+
+/* Forcer les images et canvas à ne jamais dépasser la largeur de leur conteneur */
+img, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Menu vertical sur écrans très petits */
+@media (max-width: 400px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+  }
+
+  nav ul li {
+    font-size: 1rem;
+    white-space: normal; /* Autoriser retour à la ligne */
+    text-align: center;
+  }
+}
+
+/* Réduction de la taille de la police sur très petits écrans */
+@media (max-width: 320px) {
+  body {
+    font-size: 12px;
+  }
+}
