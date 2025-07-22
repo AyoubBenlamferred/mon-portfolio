@@ -420,3 +420,48 @@ img, canvas {
     font-size: 12px;
   }
 }
+
+
+/* Bouton hamburger caché sur grand écran */
+#nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #00ffff;
+  cursor: pointer;
+}
+
+/* Menu par défaut */
+#nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Responsive - petits écrans */
+@media (max-width: 768px) {
+  #nav-toggle {
+    display: block;
+  }
+
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #001f3f;
+    position: absolute;
+    top: 56px; /* hauteur nav */
+    right: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 255, 255, 0.3);
+    z-index: 10001;
+  }
+
+  #nav-menu.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin-bottom: 1rem;
+  }
+}
