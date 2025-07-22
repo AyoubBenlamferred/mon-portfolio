@@ -206,11 +206,3 @@ window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('nav-menu');
-
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
-});
