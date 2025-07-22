@@ -1,3 +1,4 @@
+
 /* RESET */
 * {
   margin: 0;
@@ -65,7 +66,6 @@ nav {
   }
 }
 
-/* Menu desktop */
 nav ul {
   list-style: none;
   display: flex;
@@ -93,7 +93,7 @@ nav ul li:hover a {
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
 }
 
-/* Soulignement du lien actif */
+/* ✅ Correction : soulignement sous le lien actif */
 nav ul li.active a::after {
   content: '';
   position: absolute;
@@ -118,42 +118,10 @@ nav ul li a::after {
   border-radius: 3px;
 }
 
+/* Applique l'effet au survol */
 nav ul li a:hover::after {
   background: #00ffff;
   box-shadow: 0 0 10px #00ffff;
-}
-
-/* Hamburger button */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  width: 28px;
-  height: 22px;
-  gap: 5px;
-  z-index: 11000;
-}
-
-.hamburger div {
-  width: 100%;
-  height: 3px;
-  background-color: #00ffff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Animation hamburger open */
-.hamburger.open div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.open div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* CANVAS CONNEXION RESEAU */
@@ -167,7 +135,6 @@ nav ul li a:hover::after {
   border-top: 1px solid #00ffff;
   border-bottom: 1px solid #00ffff;
   cursor: pointer;
-  transition: height 0.3s ease;
 }
 
 /* SECTIONS */
@@ -213,12 +180,12 @@ section ul li {
 
 /* Profil spécifique */
 #profil img {
-  display: block;
-  margin: 1rem auto 1.5rem auto;
-  width: 120px;
-  height: 120px;
+  float: right;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 20px;
   border: 3px solid #00ffff;
   box-shadow: 0 0 15px #00ffffaa;
 }
@@ -261,8 +228,6 @@ section ul li {
   transition: background 0.3s ease;
   color: #001520;
   box-shadow: 0 0 10px #00ffff;
-  width: 100%;
-  max-width: 180px;
 }
 
 #contact button:hover {
@@ -284,8 +249,14 @@ footer {
   user-select: none;
 }
 
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 768px) {
+  #profil img {
+    float: none;
+    display: block;
+    margin: 1rem auto 1.5rem auto;
+  }
+
   nav {
     padding: 0 1rem;
   }
@@ -294,77 +265,7 @@ footer {
     font-size: 1.3rem;
   }
 
-  /* Cacher le menu par défaut */
   nav ul {
-    display: none;
-    flex-direction: column;
     gap: 1rem;
-    background: #001f3f;
-    width: 100%;
-    position: absolute;
-    top: 56px;
-    left: 0;
-    padding: 1rem 0;
-    border-bottom: 2px solid #00ffff;
-    z-index: 10500;
-  }
-
-  /* Menu visible quand actif */
-  nav ul.active {
-    display: flex;
-  }
-
-  /* Affiche le hamburger */
-  .hamburger {
-    display: flex;
-  }
-
-  nav ul li {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  /* Image profil adaptée */
-  #profil img {
-    width: 100px;
-    height: 100px;
-    margin: 1.5rem auto;
-  }
-
-  /* Sections prennent plus de largeur */
-  section {
-    padding: 0 1rem;
-    margin: 2rem 1rem 3rem 1rem;
-  }
-
-  /* Canvas réduit en hauteur */
-  #networkCanvas {
-    height: 100px;
-    margin-top: 56px;
-  }
-
-  /* Formulaire pleine largeur */
-  #contact form {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  #contact button {
-    max-width: 100%;
-  }
-}
-
-/* Très petits écrans */
-@media (max-width: 400px) {
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0;
-  }
-
-  nav ul li {
-    font-size: 1rem;
-    white-space: normal;
-    text-align: center;
   }
 }
