@@ -404,3 +404,16 @@ body.no-scroll {
     scroll-behavior: auto !important;
   }
 }
+
+/* Correction d'affichage mobile */
+@media (max-width: 768px) {
+  #networkCanvas {
+    display: none !important; /* Désactive complètement sur mobile */
+  }
+  
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
