@@ -1,4 +1,4 @@
- // Canvas réseau (initialisation, animation, explosions)
+// Canvas réseau (initialisation, animation, explosions)
 const canvas = document.getElementById('networkCanvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
