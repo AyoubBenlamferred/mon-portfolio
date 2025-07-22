@@ -1,3 +1,4 @@
+
 /* RESET */
 * {
   margin: 0;
@@ -13,7 +14,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 0;
 }
 
 a {
@@ -33,14 +33,14 @@ nav {
   width: 100%;
   background: linear-gradient(90deg, #0a192f, #001f3f);
   box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
-  z-index: 11000;
+  z-index: 10000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #00ffff;
   font-weight: 600;
   letter-spacing: 0.05em;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   height: 56px;
 }
 
@@ -51,53 +51,50 @@ nav {
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
   white-space: nowrap;
   cursor: default;
+  animation: slideInLeft 1s forwards ease-out;
 }
 
-/* Menu hamburger */
-#nav-toggle {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: #00ffff;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
+/* Animation */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-#nav-toggle:hover,
-#nav-toggle:focus {
-  color: #00cccc;
-  outline: none;
-}
-
-/* Nav menu */
-nav ul.nav-menu {
+nav ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   padding: 0;
 }
 
-nav ul.nav-menu li {
-  font-size: 1.1rem;
+nav ul li {
   position: relative;
+  font-size: 1.1rem;
 }
 
-nav ul.nav-menu li a {
+nav ul li a {
+  font-size: 1.1rem;
   color: #22d8f8;
   text-shadow: 0 0 4px #00ffff;
   position: relative;
   display: inline-block;
 }
 
-nav ul.nav-menu li.active a,
-nav ul.nav-menu li:hover a {
+nav ul li.active a,
+nav ul li:hover a {
   color: #00ffff;
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
 }
 
-nav ul.nav-menu li.active a::after {
+/* ✅ Correction : soulignement sous le lien actif */
+nav ul li.active a::after {
   content: '';
   position: absolute;
   bottom: -6px;
@@ -109,7 +106,7 @@ nav ul.nav-menu li.active a::after {
   box-shadow: 0 0 10px #00ffff;
 }
 
-nav ul.nav-menu li a::after {
+nav ul li a::after {
   content: '';
   position: absolute;
   bottom: -6px;
@@ -121,64 +118,32 @@ nav ul.nav-menu li a::after {
   border-radius: 3px;
 }
 
-nav ul.nav-menu li a:hover::after {
+/* Applique l'effet au survol */
+nav ul li a:hover::after {
   background: #00ffff;
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  #nav-toggle {
-    display: block;
-  }
-
-  nav ul.nav-menu {
-    flex-direction: column;
-    position: fixed;
-    top: 56px;
-    right: 0;
-    width: 240px;
-    height: calc(100vh - 56px);
-    background: #001f3f;
-    box-shadow: 0 0 20px #00ffffbb;
-    border-radius: 0 0 0 12px;
-    padding: 1rem 1.5rem;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 10999;
-  }
-
-  nav ul.nav-menu.visible {
-    transform: translateX(0);
-  }
-
-  nav ul.nav-menu li {
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-  }
-
-  nav ul.nav-menu li:last-child {
-    margin-bottom: 0;
-  }
+/* CANVAS CONNEXION RESEAU */
+#networkCanvas {
+  display: block;
+  background: #001520;
+  width: 100%;
+  height: 180px;
+  margin-top: 56px;
+  box-shadow: inset 0 0 30px #00ffff88;
+  border-top: 1px solid #00ffff;
+  border-bottom: 1px solid #00ffff;
+  cursor: pointer;
 }
 
-/* Overlay fond semi-transparent quand menu ouvert */
-nav ul.nav-menu.visible::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 10998;
-  pointer-events: none;
-}
-
-/* Sections */
+/* SECTIONS */
 section {
   max-width: 960px;
-  margin: 4rem auto 5rem auto;
+  margin: 3rem auto 5rem auto;
   padding: 0 1.5rem;
   scroll-margin-top: 70px;
+
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -210,55 +175,39 @@ section ul {
 }
 
 section ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Profil image */
+/* Profil spécifique */
 #profil img {
-  display: block;
-  margin: 1.5rem auto;
-  width: 140px;
-  height: 140px;
+  float: right;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 20px;
   border: 3px solid #00ffff;
   box-shadow: 0 0 15px #00ffffaa;
-  float: none;
 }
 
-/* Canvas */
-#networkCanvas {
-  display: block;
-  background: #001520;
-  width: 100%;
-  height: 120px;
-  margin-top: 56px;
-  box-shadow: inset 0 0 30px #00ffff88;
-  border-top: 1px solid #00ffff;
-  border-bottom: 1px solid #00ffff;
-  cursor: pointer;
-}
-
-/* Contact form */
+/* Contact */
 #contact form {
   max-width: 480px;
   margin-top: 1rem;
-  padding: 0 1rem;
-  width: 100%;
 }
 
 #contact input,
 #contact textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 1rem;
   margin-bottom: 1rem;
   border-radius: 6px;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   background: #003048;
   color: #a0c7d9;
-  box-shadow: 0 0 8px #00ffff33 inset;
   transition: background 0.3s ease;
+  box-shadow: 0 0 8px #00ffff33 inset;
 }
 
 #contact input:focus,
@@ -269,17 +218,16 @@ section ul li {
 }
 
 #contact button {
-  width: 100%;
   background: #00ffff;
   border: none;
-  padding: 1rem 0;
+  padding: 0.8rem 1.8rem;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border-radius: 30px;
   cursor: pointer;
+  transition: background 0.3s ease;
   color: #001520;
   box-shadow: 0 0 10px #00ffff;
-  transition: background 0.3s ease;
 }
 
 #contact button:hover {
@@ -301,19 +249,133 @@ footer {
   user-select: none;
 }
 
-/* Responsive tweaks */
-@media (max-width: 480px) {
+/* Responsive */
+@media (max-width: 768px) {
+  #profil img {
+    float: none;
+    display: block;
+    margin: 1rem auto 1.5rem auto;
+  }
+
+  nav {
+    padding: 0 1rem;
+  }
+
+  .nav-brand {
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+}
+
+/* MENU HAMBURGER - Responsive */
+
+#nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #00ffff;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+#nav-toggle:hover,
+#nav-toggle:focus {
+  color: #00cccc;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  #nav-toggle {
+    display: block;
+  }
+
+  nav ul.nav-menu {
+    flex-direction: column;
+    position: fixed;
+    top: 56px; /* même hauteur que nav */
+    right: 0;
+    background: #001f3f;
+    width: 220px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0 15px #00ffffaa;
+    border-radius: 0 0 0 10px;
+    display: none;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    z-index: 10001;
+  }
+
+  nav ul.nav-menu.visible {
+    display: flex;
+  }
+
+  nav ul.nav-menu li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Image responsive */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Sections ajustées sur mobile */
+
+@media (max-width: 768px) {
   section {
-    margin: 2rem 1rem 3rem 1rem;
+    margin: 2rem 1rem 4rem 1rem;
     padding: 0 1rem;
   }
 
   #profil img {
-    width: 120px;
+    float: none;
+    margin: 1rem auto 1.5rem auto;
+    display: block;
+  }
+}
+
+/* Animation douce du menu hamburger */
+nav ul.nav-menu {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+nav ul.nav-menu.visible {
+  display: flex;
+  max-height: 100vh; /* grand max pour dérouler le menu */
+  opacity: 1;
+}
+
+/* Sur petits écrans (< 480px), réduis la hauteur du canvas */
+@media (max-width: 480px) {
+  #networkCanvas {
     height: 120px;
   }
 
-  #networkCanvas {
-    height: 100px !important;
+  /* Formulaire contact pleine largeur + texte plus grand */
+  #contact form {
+    max-width: 100%;
+  }
+  #contact input,
+  #contact textarea,
+  #contact button {
+    font-size: 1.2rem;
+  }
+
+  /* Sections avec marges réduites */
+  section {
+    margin: 1.5rem 1rem 3rem 1rem;
+    padding: 0 0.5rem;
   }
 }
