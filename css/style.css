@@ -318,3 +318,76 @@ footer {
     max-width: 100%;
   }
 }
+
+/* Responsive simple pour tous écrans - à ajouter à la fin */
+
+@media (max-width: 768px) {
+  /* Nav : passer de horizontal à vertical pour les petits écrans */
+  nav {
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+
+  .nav-brand {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  nav ul li {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  /* Image profil plus petite et centrée */
+  #profil img {
+    float: none;
+    display: block;
+    margin: 1rem auto 1.5rem auto;
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Sections et formulaire prennent plus la largeur */
+  section {
+    padding: 0 1rem;
+    margin: 2rem 1rem 3rem 1rem;
+  }
+
+  #contact form {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  nav ul li {
+    font-size: 0.95rem;
+  }
+
+  #profil img {
+    width: 120px;
+    height: 120px;
+  }
+
+  section {
+    margin: 1.5rem 0.5rem 2rem 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  #contact form {
+    padding: 0 0.5rem;
+  }
+}
