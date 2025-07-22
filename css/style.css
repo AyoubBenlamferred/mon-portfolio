@@ -342,3 +342,40 @@ img {
     display: block;
   }
 }
+
+/* Animation douce du menu hamburger */
+nav ul.nav-menu {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+nav ul.nav-menu.visible {
+  display: flex;
+  max-height: 100vh; /* grand max pour dérouler le menu */
+  opacity: 1;
+}
+
+/* Sur petits écrans (< 480px), réduis la hauteur du canvas */
+@media (max-width: 480px) {
+  #networkCanvas {
+    height: 120px;
+  }
+
+  /* Formulaire contact pleine largeur + texte plus grand */
+  #contact form {
+    max-width: 100%;
+  }
+  #contact input,
+  #contact textarea,
+  #contact button {
+    font-size: 1.2rem;
+  }
+
+  /* Sections avec marges réduites */
+  section {
+    margin: 1.5rem 1rem 3rem 1rem;
+    padding: 0 0.5rem;
+  }
+}
