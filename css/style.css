@@ -269,3 +269,52 @@ footer {
     gap: 1rem;
   }
 }
+
+/* Adaptabilité mobile - responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* un peu plus petit sur mobile */
+  }
+
+  nav {
+    padding: 0 1rem;
+    flex-wrap: wrap; /* permet au contenu de passer à la ligne */
+  }
+
+  .nav-brand {
+    flex-basis: 100%; /* occupe toute la ligne */
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  nav ul {
+    flex-basis: 100%; /* occupe toute la ligne sous la marque */
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    font-size: 1rem;
+    white-space: nowrap; /* évite les retours à la ligne dans les liens */
+  }
+
+  #profil img {
+    float: none;
+    display: block;
+    margin: 1rem auto 1.5rem auto;
+    width: 140px; /* un peu plus petit sur mobile */
+    height: 140px;
+  }
+
+  section {
+    padding: 0 1rem;
+    margin: 2rem 1rem 3rem 1rem;
+  }
+
+  #contact form {
+    width: 100%;
+    max-width: 100%;
+  }
+}
