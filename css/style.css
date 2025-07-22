@@ -313,3 +313,52 @@ footer {
     padding: 1rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .nav-brand {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding-left: 0;
+  }
+  
+  nav ul li {
+    width: 100%;
+  }
+  
+  nav ul li a {
+    padding: 0.5rem 0;
+    display: block;
+    width: 100%;
+  }
+  
+  section {
+    margin: 2rem 1rem;
+    padding: 0;
+  }
+  
+  section h2 {
+    font-size: 1.5rem;
+  }
+  
+  section p {
+    font-size: 1rem;
+  }
+  
+  /* Ajuster tout ce qui peut déborder */
+  body, html {
+    overflow-x: hidden;
+  }
+}
