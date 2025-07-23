@@ -1,3 +1,9 @@
+function getScrollbarWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
+
+
+
 // Canvas réseau (initialisation, animation, explosions)
 const canvas = document.getElementById('networkCanvas');
 if (canvas) {
@@ -199,16 +205,19 @@ if(navToggle && navMenu) {
     navToggle.classList.toggle('active');
     const expanded = navToggle.classList.contains('active');
     navToggle.setAttribute('aria-expanded', expanded);
+
+    // Bloquer/débloquer le scroll du body et compenser la largeur scrollbar
+    if (expanded) {
+      const scrollBarWidth = getScrollbarWidth();
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = scrollBarWidth + 'px'; // <-- Compensation ici
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = ''; // <-- Enlever la compensation
+    }
   });
 }
 
-// Bloquer/débloquer le scroll du body pour éviter décalage horizontal
-    if (expanded) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  
 
 
 
