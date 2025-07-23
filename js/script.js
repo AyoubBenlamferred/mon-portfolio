@@ -195,28 +195,7 @@ if (canvas) {
   animate();
 }
 
-// Menu hamburger toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('nav ul');
 
-if(navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-    const expanded = navToggle.classList.contains('active');
-    navToggle.setAttribute('aria-expanded', expanded);
-
-    // Bloquer/débloquer le scroll du body et compenser la largeur scrollbar
-    if (expanded) {
-      const scrollBarWidth = getScrollbarWidth();
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = scrollBarWidth + 'px'; // <-- Compensation ici
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = ''; // <-- Enlever la compensation
-    }
-  });
-}
 
 
 

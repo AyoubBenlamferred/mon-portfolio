@@ -1,8 +1,3 @@
-html, body {
-  overflow-x: hidden;
-}
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
@@ -266,56 +261,10 @@ footer {
   user-select: none;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-
-  nav {
-    flex-wrap: nowrap; /* Optionnel : pour éviter les retours à la ligne */
-    padding: 0 1.5rem; /* Ajuste si besoin */
-    height: 56px;
-  }
-
-  .nav-toggle {
-    display: block;
-    position: relative; /* IMPORTANT */
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 10002;
-  }
-
- nav ul {
-  display: none;
-  flex-direction: column;
-  position: static;  /* <-- ou relative */
-  width: 100%;
-  max-width: none;
-  background: transparent; /* ou couleur si tu veux */
-  box-shadow: none;
-  border-left: none;
-  padding: 0;
-  margin-top: 0.5rem; /* un petit espace sous la nav */
-  z-index: auto;
-}
 
 
-  nav ul.active {
-    display: flex;
-  }
-
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    padding: 0.5rem 0;
-  }
-
-  /* Garde la marque à gauche */
-  .nav-brand {
-    font-size: 1.6rem;
-    color: #00ffff;
-  }
-}
 
 
-  
+
 
 
