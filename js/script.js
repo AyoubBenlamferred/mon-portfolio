@@ -219,6 +219,9 @@ function checkSections() {
   });
 }
 
+window.addEventListener('load', checkSections);
+window.addEventListener('scroll', checkSections);
+
 
 
 
