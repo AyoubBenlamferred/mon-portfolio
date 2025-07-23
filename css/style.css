@@ -155,6 +155,11 @@ section {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+ 
 section.visible {
   opacity: 1;
   transform: translateY(0);
