@@ -180,24 +180,24 @@ if (canvas) {
 }
 
 // Menu hamburger toggle
-const toggleButton = document.getElementById('nav-toggle');
+const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
-if (toggleButton && navMenu) {
-  toggleButton.addEventListener('click', () => {
-    const expanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
-    toggleButton.setAttribute('aria-expanded', !expanded);
-    navMenu.classList.toggle('visible');
-  });
 
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (navMenu.classList.contains('visible')) {
-        navMenu.classList.remove('visible');
-        toggleButton.setAttribute('aria-expanded', false);
-      }
-    });
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+  hamburger.setAttribute('aria-expanded', !expanded);
+});
+
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', false);
   });
-}
+});
+
 
 // Animation sections au scroll
 const sections = document.querySelectorAll('section');
@@ -218,3 +218,5 @@ function checkSections() {
 
 window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
+
+

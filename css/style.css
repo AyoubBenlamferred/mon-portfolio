@@ -248,71 +248,68 @@ footer {
   user-select: none;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-  /* Nav */
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    padding: 1rem;
+/* ============================
+   MEDIA QUERIES POUR MOBILE
+   ============================ */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
   }
 
-  .nav-brand {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+  /* Afficher bouton hamburger, cacher menu */
+  nav .hamburger {
+    display: flex;
   }
-
   nav ul {
     flex-direction: column;
-    gap: 0.5rem;
     width: 100%;
-    padding-left: 0;
+    gap: 10px;
+    margin-top: 10px;
+    display: none; /* caché par défaut sur mobile */
   }
-
+  nav ul.active {
+    display: flex; /* affiché quand menu ouvert */
+  }
   nav ul li {
-    width: 100%;
+    text-align: center;
   }
 
-  nav ul li a {
-    padding: 0.5rem 0;
-    display: block;
-    width: 100%;
+  /* Conteneur en colonne */
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
   }
 
-  /* Sections */
-  section {
-    margin: 2rem 1rem;
-    padding: 0;
-  }
-
-  section h2 {
-    font-size: 1.5rem;
-  }
-
-  section p {
-    font-size: 1rem;
-  }
-
-  #profil img {
-    float: none;
-    display: block;
-    margin: 1rem auto 1.5rem auto;
-    width: 150px;
-    height: 150px;
-  }
-
-  #contact form {
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  #networkCanvas {
-    height: 100px;
-  }
-
-  footer {
-    font-size: 0.8rem;
-    padding: 1rem;
+  .card {
+    max-width: 100%;
+    flex: 1 1 auto;
+    padding: 15px;
   }
 }
+
+/* Animation hamburger active (croix) */
+nav .hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+nav .hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+nav .hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Optionnel: très petits écrans < 400px */
+@media (max-width: 400px) {
+  nav .logo {
+    font-size: 1.1rem;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+}
+
