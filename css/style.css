@@ -172,6 +172,7 @@ section p {
   line-height: 1.6;
   font-size: 1.1rem;
   color: #a0c7d9;
+   margin-bottom: 1.2rem;
 }
 
 section ul {
@@ -290,40 +291,6 @@ footer {
   }
 
 
-  /* Sections */
-  @media screen and (max-width: 768px) {
-  /* NAVIGATION */
-  nav {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    height: auto;
-  }
-
-  .nav-brand {
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
-    text-align: center;
-    padding: 0;
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    padding: 0.6rem 0;
-    display: block;
-    width: 100%;
-  }
-
   /* SECTIONS */
   section {
     margin: 1.5rem 1rem;
@@ -372,4 +339,68 @@ footer {
     text-align: center;
   }
 }
+
+/* Bouton hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
 }
+
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #00ffff;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-toggle .hamburger::before {
+  position: absolute;
+  top: -8px;
+  left: 0;
+}
+
+.nav-toggle .hamburger::after {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+
+/* Afficher bouton hamburger sur mobile */
+@media screen and (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #networkCanvas {
+    height: 80px;
+  }
+}
+

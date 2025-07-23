@@ -4,6 +4,9 @@ if (canvas) {
   const ctx = canvas.getContext('2d');
   let width, height, nodes;
   let explosions = [];
+  let resizeTimeout;
+
+  
 
   function initCanvas() {
     width = window.innerWidth;
@@ -22,6 +25,13 @@ if (canvas) {
       });
     }
   }
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      initCanvas();
+    }, 150);
+  });
 
   function dist(a, b) {
     return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
@@ -173,29 +183,22 @@ if (canvas) {
     requestAnimationFrame(animate);
   }
 
-  window.addEventListener('resize', initCanvas);
+  
 
   initCanvas();
   animate();
 }
 
 // Menu hamburger toggle
-const toggleButton = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-if (toggleButton && navMenu) {
-  toggleButton.addEventListener('click', () => {
-    const expanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
-    toggleButton.setAttribute('aria-expanded', !expanded);
-    navMenu.classList.toggle('visible');
-  });
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('nav ul');
 
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (navMenu.classList.contains('visible')) {
-        navMenu.classList.remove('visible');
-        toggleButton.setAttribute('aria-expanded', false);
-      }
-    });
+if(navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+    const expanded = navToggle.classList.contains('active');
+    navToggle.setAttribute('aria-expanded', expanded);
   });
 }
 
@@ -216,5 +219,8 @@ function checkSections() {
   });
 }
 
-window.addEventListener('scroll', checkSections);
-window.addEventListener('load', checkSections);
+
+
+
+
+
