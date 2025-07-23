@@ -1,16 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-
 /* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -52,7 +45,7 @@ nav {
 }
 
 .nav-brand {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #00ffff;
   font-weight: 700;
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
@@ -155,11 +148,6 @@ section {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-section {
-  opacity: 1 !important;
-  transform: none !important;
-}
- 
 section.visible {
   opacity: 1;
   transform: translateY(0);
@@ -177,7 +165,6 @@ section p {
   line-height: 1.6;
   font-size: 1.1rem;
   color: #a0c7d9;
-   margin-bottom: 1.2rem;
 }
 
 section ul {
@@ -261,10 +248,71 @@ footer {
   user-select: none;
 }
 
+/* Responsive */
+@media screen and (max-width: 768px) {
+  /* Nav */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
+  }
 
+  .nav-brand {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
 
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding-left: 0;
+  }
 
+  nav ul li {
+    width: 100%;
+  }
 
+  nav ul li a {
+    padding: 0.5rem 0;
+    display: block;
+    width: 100%;
+  }
 
+  /* Sections */
+  section {
+    margin: 2rem 1rem;
+    padding: 0;
+  }
 
+  section h2 {
+    font-size: 1.5rem;
+  }
 
+  section p {
+    font-size: 1rem;
+  }
+
+  #profil img {
+    float: none;
+    display: block;
+    margin: 1rem auto 1.5rem auto;
+    width: 150px;
+    height: 150px;
+  }
+
+  #contact form {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  #networkCanvas {
+    height: 100px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+}
