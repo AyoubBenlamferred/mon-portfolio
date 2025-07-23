@@ -379,6 +379,7 @@ footer {
   left: 0;
 }
 
+
 /* Afficher bouton hamburger sur mobile */
 @media screen and (max-width: 768px) {
   .nav-toggle {
@@ -392,9 +393,11 @@ footer {
     gap: 0;
   }
 
+
   nav ul.active {
     display: flex;
   }
+
 
   nav ul li {
     text-align: center;
@@ -415,3 +418,4 @@ footer {
     transform: none !important;
   }
 }
+

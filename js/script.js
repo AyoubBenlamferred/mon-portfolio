@@ -202,6 +202,17 @@ if(navToggle && navMenu) {
   });
 }
 
+// Bloquer/débloquer le scroll du body pour éviter décalage horizontal
+    if (expanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  
+
+
+
+
 // Animation sections au scroll
 const sections = document.querySelectorAll('section');
 
