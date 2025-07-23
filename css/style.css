@@ -409,3 +409,9 @@ footer {
   }
 }
 
+@media (min-width: 769px) {
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
