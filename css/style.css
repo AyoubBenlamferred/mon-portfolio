@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 /* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 body {
@@ -45,7 +52,7 @@ nav {
 }
 
 .nav-brand {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #00ffff;
   font-weight: 700;
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
