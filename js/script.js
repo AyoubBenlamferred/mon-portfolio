@@ -1,12 +1,12 @@
-console.log("script.js chargé");
-
-
 // Canvas réseau (initialisation, animation, explosions)
 const canvas = document.getElementById('networkCanvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let width, height, nodes;
   let explosions = [];
+  let resizeTimeout;
+
+  
 
   function initCanvas() {
     width = window.innerWidth;
@@ -25,6 +25,13 @@ if (canvas) {
       });
     }
   }
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      initCanvas();
+    }, 150);
+  });
 
   function dist(a, b) {
     return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
@@ -176,14 +183,26 @@ if (canvas) {
     requestAnimationFrame(animate);
   }
 
-  window.addEventListener('resize', initCanvas);
+  
 
   initCanvas();
   animate();
 }
 
-// --- Animation sections au scroll ---
+// Menu hamburger toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('nav ul');
 
+if(navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+    const expanded = navToggle.classList.contains('active');
+    navToggle.setAttribute('aria-expanded', expanded);
+  });
+}
+
+// Animation sections au scroll
 const sections = document.querySelectorAll('section');
 
 function checkSections() {
@@ -200,9 +219,8 @@ function checkSections() {
   });
 }
 
-window.checkSections = checkSections;
 
 
-window.addEventListener('scroll', checkSections);
-window.addEventListener('load', checkSections);
+
+
 
