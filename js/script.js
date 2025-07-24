@@ -179,11 +179,24 @@ if (canvas) {
   animate();
 }
 
+// --- Animation sections au scroll ---
 
+const sections = document.querySelectorAll('section');
 
+function checkSections() {
+  const triggerBottom = window.innerHeight * 0.85;
 
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop < triggerBottom) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
+  });
+}
 
 window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
-
 
