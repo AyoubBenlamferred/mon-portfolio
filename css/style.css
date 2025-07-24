@@ -77,16 +77,44 @@ nav ul li a:hover::after {
   box-shadow: 0 0 8px #00ffff;
 }
 
-/* CANVAS */
 #networkCanvas {
+  /* Style de base */
   display: block;
   width: 100%;
-  height: 180px;
+  height: 280px;
   margin-top: 56px;
-  background: #001520;
-  box-shadow: inset 0 0 30px #00ffff55;
-  border-top: 1px solid #00ffff;
-  border-bottom: 1px solid #00ffff;
+  
+  /* Arrière-plan avec dégradé profond */
+  background: radial-gradient(ellipse at center, #001a2a 0%, #000913 100%);
+  
+  /* Bordures néon avec animation */
+  border-top: 1.5px solid #00ffff;
+  border-bottom: 1.5px solid #00ffff;
+  box-shadow: 
+    inset 0 0 60px #00ffff55,
+    0 0 20px #00ffff33;
+  
+  /* Optimisation des performances */
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  
+  /* Animation subtile */
+  animation: canvasPulse 8s infinite alternate;
+}
+
+/* Animation de pulsation */
+@keyframes canvasPulse {
+  0% { opacity: 0.95; box-shadow: inset 0 0 60px #00ffff55; }
+  100% { opacity: 1; box-shadow: inset 0 0 90px #00ffffaa; }
+}
+
+/* Adaptation pour écrans Retina/QHD */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #networkCanvas {
+    border-width: 1px;
+    box-shadow: inset 0 0 80px #00ffff55;
+  }
 }
 
 /* SECTIONS GÉNÉRALES */
