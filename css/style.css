@@ -176,26 +176,41 @@ button:hover {
   background: #00cccc;
 }
 
+/* COORDONNÉES ET CV */
+.contact-info,
 .map-container {
-  max-width: 700px;      /* largeur max */
-  width: 90vw;           /* largeur responsive */
-  height: 350px;         /* hauteur fixe */
-  margin: 2rem auto;     /* centrer horizontalement */
+  background: #001f3f;
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px #00ffff88;
+  margin-bottom: 2rem;
+}
+
+/* Ajout flexbox pour centrer contenu */
+/* CSS */
+.map-container {
+  max-width: 960px;      /* limite largeur max */
+  margin: 0 auto 2rem;   /* centre horizontalement */
+  padding: 0 1rem;
+  background: #001f3f;
   border: 1px solid #00ffff;
   border-radius: 12px;
   box-shadow: 0 0 15px #00ffff88;
-  overflow: hidden;      /* coins arrondis appliqués */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .map-container iframe {
-  width: 100%;
-  height: 100%;
+  width: 100%;           /* prend toute la largeur du container */
+  height: 300px;         /* hauteur fixe */
   border: none;
   border-radius: 12px;
-  display: block;
   box-shadow: 0 0 10px #00ffff55;
+  display: block;        /* évite espace blanc en bas */
 }
-
 
 
 
