@@ -118,7 +118,8 @@ nav ul li a:hover::after {
 }
 
 /* SECTIONS GÉNÉRALES */
-section {
+section
+ {
   max-width: 960px;
   margin: 3rem auto;
   padding: 0 1.5rem;
@@ -126,7 +127,24 @@ section {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: left;   /* ici on met à gauche par défaut */
 }
+
+
+
+section, .intro {
+  align-self: center; /* pour centrer horizontalement dans le flex container */
+  /* ou */
+  width: 100%; /* pour prendre toute la largeur disponible */
+  max-width: 960px;
+  padding: 0 1.5rem;
+}
+
+
+
+
+
+
 section.visible {
   opacity: 1;
   transform: translateY(0);
@@ -313,6 +331,14 @@ footer {
   border: 3px solid #00ffff;
   box-shadow: 0 0 15px #00ffffaa;
 }
+
+
+
+
+
+
+
+
 
 
 
