@@ -179,42 +179,9 @@ if (canvas) {
   animate();
 }
 
-// Menu hamburger toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('active');
-  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-  hamburger.setAttribute('aria-expanded', !expanded);
-});
-
-navMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', false);
-  });
-});
 
 
-// Animation sections au scroll
-const sections = document.querySelectorAll('section');
 
-function checkSections() {
-  const triggerBottom = window.innerHeight * 0.85;
-
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-
-    if (sectionTop < triggerBottom) {
-      section.classList.add('visible');
-    } else {
-      section.classList.remove('visible');
-    }
-  });
-}
 
 window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
