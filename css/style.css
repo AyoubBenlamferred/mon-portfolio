@@ -15,11 +15,10 @@ body {
   min-height: 100vh;
 }
 
-/* Liens */
 a {
   color: #22d8f8;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 a:hover {
@@ -42,7 +41,7 @@ nav {
   letter-spacing: 0.05em;
   padding: 0 2rem;
   height: 56px;
-  flex-wrap: wrap; /* Pour permettre le wrapping si besoin */
+  flex-wrap: wrap;
 }
 
 .nav-brand {
@@ -55,11 +54,11 @@ nav {
   animation: slideInLeft 1s forwards ease-out;
 }
 
-/* Animation entrée de la marque */
+/* Animation */
 @keyframes slideInLeft {
   0% {
     transform: translateX(-100%);
-    opacity: 0;
+    opacity: 1;
   }
   100% {
     transform: translateX(0);
@@ -67,7 +66,6 @@ nav {
   }
 }
 
-/* Menu de navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -89,14 +87,13 @@ nav ul li a {
   display: inline-block;
 }
 
-/* Lien actif et hover */
 nav ul li.active a,
 nav ul li:hover a {
   color: #00ffff;
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
 }
 
-/* Soulignement du lien actif */
+/* Soulignement sous lien actif */
 nav ul li.active a::after {
   content: '';
   position: absolute;
@@ -109,7 +106,6 @@ nav ul li.active a::after {
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* Soulignement sur hover */
 nav ul li a::after {
   content: '';
   position: absolute;
@@ -118,7 +114,7 @@ nav ul li a::after {
   right: 10%;
   height: 3px;
   background: transparent;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s, box-shadow 0.3s;
   border-radius: 3px;
 }
 
@@ -133,7 +129,7 @@ nav ul li a:hover::after {
   background: #001520;
   width: 100%;
   height: 180px;
-  margin-top: 56px; /* hauteur du nav */
+  margin-top: 56px;
   box-shadow: inset 0 0 30px #00ffff88;
   border-top: 1px solid #00ffff;
   border-bottom: 1px solid #00ffff;
@@ -157,7 +153,6 @@ section.visible {
   transform: translateY(0);
 }
 
-/* Titres des sections */
 section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -166,14 +161,12 @@ section h2 {
   padding-left: 12px;
 }
 
-/* Paragraphes */
 section p {
   line-height: 1.6;
   font-size: 1.1rem;
   color: #a0c7d9;
 }
 
-/* Listes */
 section ul {
   list-style: disc inside;
   margin-top: 1rem;
@@ -196,14 +189,14 @@ section ul li {
   box-shadow: 0 0 15px #00ffffaa;
 }
 
-/* Formulaire de contact */
-#contact form {
+/* Contact */
+#contact-form form {
   max-width: 480px;
   margin-top: 1rem;
 }
 
-#contact input,
-#contact textarea {
+#contact-form input,
+#contact-form textarea {
   width: 100%;
   padding: 0.7rem 1rem;
   margin-bottom: 1rem;
@@ -216,14 +209,14 @@ section ul li {
   box-shadow: 0 0 8px #00ffff33 inset;
 }
 
-#contact input:focus,
-#contact textarea:focus {
+#contact-form input:focus,
+#contact-form textarea:focus {
   background: #005a87;
   outline: none;
   box-shadow: 0 0 15px #00ffffbb inset;
 }
 
-#contact button {
+#contact-form button {
   background: #00ffff;
   border: none;
   padding: 0.8rem 1.8rem;
@@ -236,7 +229,7 @@ section ul li {
   box-shadow: 0 0 10px #00ffff;
 }
 
-#contact button:hover {
+#contact-form button:hover {
   background: #00cccc;
   box-shadow: 0 0 15px #00cccc;
 }
@@ -255,31 +248,79 @@ footer {
   user-select: none;
 }
 
-/* Responsive basique */
-@media (max-width: 768px) {
-  nav {
-    padding: 0 1rem;
-  }
 
-  .nav-brand {
-    font-size: 1.3rem;
-  }
+/* Coordonnées */
+.contact-info {
+  max-width: 960px;
+  margin: 3rem auto 2rem auto;
+  padding: 1rem 1.5rem;
+  color: #a0c7d9;
+  background: #001f3f;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffff88;
+}
 
-  nav ul {
-    gap: 1rem;
-  }
+.contact-info h3 {
+  font-size: 1.8rem;
+  color: #22d8f8;
+  border-left: 5px solid #00ffff;
+  padding-left: 12px;
+  margin-bottom: 1rem;
+}
 
-  section {
-    margin: 6rem 1rem 5rem 1rem;
-    padding: 0 1rem;
-  }
+.contact-info p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
 
-  /* Profil image responsive */
-  #profil img {
-    float: none;
-    display: block;
-    margin: 1rem auto 2rem auto;
-    width: 150px;
-    height: 150px;
-  }
+.contact-info a {
+  color: #22d8f8;
+  text-shadow: 0 0 4px #00ffff;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+}
+
+
+.cv-download a {
+  display: inline-block;
+  background: #00ffff;
+  color: #001520;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #00ffff;
+  transition: background 0.3s ease;
+}
+
+.cv-download a:hover {
+  background: #00cccc;
+  box-shadow: 0 0 15px #00cccc;
+}
+
+
+/* Carte Google Maps */
+.map-container {
+  max-width: 960px;
+  margin: 2rem auto 4rem auto;
+  padding: 1rem;
+  background: #001f3f;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffff88;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #00ffff55;
 }
