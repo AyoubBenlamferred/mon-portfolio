@@ -1,3 +1,6 @@
+console.log("script.js chargé");
+
+
 // Canvas réseau (initialisation, animation, explosions)
 const canvas = document.getElementById('networkCanvas');
 if (canvas) {
@@ -196,6 +199,9 @@ function checkSections() {
     }
   });
 }
+
+window.checkSections = checkSections;
+
 
 window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
