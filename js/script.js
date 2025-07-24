@@ -1,12 +1,13 @@
+console.log("Script chargé !");
+
+
 // Canvas réseau (initialisation, animation, explosions)
-const canvas = document.getElementById('networkCanvas');
+canvas = document.getElementById('networkCanvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let width, height, nodes;
   let explosions = [];
   let resizeTimeout;
-
-  
 
   function initCanvas() {
     width = window.innerWidth;
@@ -28,13 +29,11 @@ if (canvas) {
 
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      initCanvas();
-    }, 150);
+    resizeTimeout = setTimeout(initCanvas, 150);
   });
 
   function dist(a, b) {
-    return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+    return Math.hypot(a.x - b.x, a.y - b.y); // plus performant et clair
   }
 
   class Particle {
@@ -54,6 +53,7 @@ if (canvas) {
       this.radius *= 0.95;
     }
     draw(ctx) {
+      if (this.alpha <= 0) return;
       ctx.save();
       ctx.globalAlpha = this.alpha;
       ctx.shadowColor = '#00ffff';
@@ -102,7 +102,7 @@ if (canvas) {
 
     let closestNode = null;
     let minDist = 15;
-    for (let n of nodes) {
+    for (const n of nodes) {
       const d = dist({ x: mouseX, y: mouseY }, n);
       if (d < minDist) {
         minDist = d;
@@ -123,6 +123,7 @@ if (canvas) {
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
+    // Mise à jour des noeuds
     nodes.forEach(n => {
       n.x += n.vx;
       n.y += n.vy;
@@ -130,6 +131,7 @@ if (canvas) {
       if (n.y < 0 || n.y > height) n.vy *= -1;
     });
 
+    // Dessin des lignes entre noeuds proches
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const d = dist(nodes[i], nodes[j]);
@@ -145,6 +147,7 @@ if (canvas) {
       }
     }
 
+    // Dessin des noeuds
     nodes.forEach(n => {
       ctx.save();
       ctx.shadowColor = '#00ffff';
@@ -156,6 +159,7 @@ if (canvas) {
       ctx.restore();
     });
 
+    // Animation des explosions
     for (let i = explosions.length - 1; i >= 0; i--) {
       const exp = explosions[i];
 
@@ -164,6 +168,7 @@ if (canvas) {
         r.draw(ctx);
       });
 
+      // Ajouter un nouvel anneau si besoin
       if (exp.rings.length < 4 && exp.rings[exp.rings.length - 1].radius > 20) {
         exp.rings.push(new Ring(exp.x, exp.y));
       }
@@ -183,23 +188,8 @@ if (canvas) {
     requestAnimationFrame(animate);
   }
 
-  
-
   initCanvas();
   animate();
-}
-
-// Menu hamburger toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('nav ul');
-
-if(navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-    const expanded = navToggle.classList.contains('active');
-    navToggle.setAttribute('aria-expanded', expanded);
-  });
 }
 
 // Animation sections au scroll
@@ -207,20 +197,29 @@ const sections = document.querySelectorAll('section');
 
 function checkSections() {
   const triggerBottom = window.innerHeight * 0.85;
+  // Supprime les logs une fois testé
+  // console.log('checkSections called, triggerBottom:', triggerBottom);
 
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
+    // console.log(section.id, 'top:', sectionTop);
 
     if (sectionTop < triggerBottom) {
-      section.classList.add('visible');
+      if (!section.classList.contains('visible')) {
+        section.classList.add('visible');
+        // console.log(section.id, 'added visible');
+      }
     } else {
-      section.classList.remove('visible');
+      if (section.classList.contains('visible')) {
+        section.classList.remove('visible');
+        // console.log(section.id, 'removed visible');
+      }
     }
   });
 }
 
 
-
-
-
+window.addEventListener('scroll', checkSections);
+window.addEventListener('load', checkSections);
+checkSections();
 
