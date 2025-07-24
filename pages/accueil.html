@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>accueil - Ayoub Benlamferred</title>
-  <link rel="stylesheet" href="/mon-portfolio/css/style.css">
-  <link rel="icon" href="/mon-portfolio/fav/favicon.ico" type="image/x-icon">
+
+  <!-- Chemins relatifs pour compatibilité locale et GitHub -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../fav/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -33,7 +35,7 @@
 
   <section id="profil">
     <h2>Profil</h2>
-    <img src="/mon-portfolio/images/img.jpg" alt="Photo profil" />
+   
     <p>Je suis Ayoub Benlamferred, étudiant en BTS SIO passionné par le développement, la gestion de projet, et les
       nouvelles technologies. Mon objectif est d'intégrer une entreprise où je pourrai appliquer mes compétences et évoluer
       professionnellement.</p>
@@ -78,20 +80,16 @@
       informatique : intelligence artificielle, cybersécurité, cloud computing, etc.</p>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <form onsubmit="event.preventDefault(); alert('Merci pour votre message !'); this.reset();">
-      <input type="text" placeholder="Votre nom" required />
-      <input type="email" placeholder="Votre email" required />
-      <textarea rows="5" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
+  <section class="intro">
+      <h2>Contact</h2>
+      <p>Vous pouvez me joindre via les coordonnées ci-dessous ou m’envoyer un message via le formulaire. Vos données resteront confidentielles.</p>
+    </section>
 
   <footer>
     Tous droits réservés © 2025 Ayoub Benlamferred
   </footer>
 
-  <script src="/mon-portfolio/js/script.js"></script>
+  <!-- Script canvas et animations -->
+  <script src="../js/script.js"></script>
 </body>
 </html>
