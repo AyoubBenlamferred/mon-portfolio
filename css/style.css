@@ -136,14 +136,56 @@ section li {
   box-shadow: 0 0 15px #00ffffaa;
 }
 
-/* FORMULAIRE DE CONTACT */
-#contact-form form,
-form {
-  max-width: 480px;
-  margin-top: 1rem;
+/* COORDONNÉES */
+.contact-info {
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  background: #001f3f;
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px #00ffff88;
+  color: #a0c7d9;
+  box-sizing: border-box;
+}
+.contact-info h3 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+  border-left: 5px solid #00ffff;
+  padding-left: 12px;
+}
+.contact-info a {
+  color: #22d8f8;
+  text-decoration: underline;
+}
+.contact-info a:hover {
+  color: #00ffff;
 }
 
-input, textarea {
+/* FORMULAIRE DE CONTACT */
+#contact-form {
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  background: #001f3f;
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 15px #00ffff88;
+  color: #a0c7d9;
+  box-sizing: border-box;
+}
+#contact-form h3 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+  border-left: 5px solid #00ffff;
+  padding-left: 12px;
+}
+#contact-form form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+#contact-form input,
+#contact-form textarea {
   width: 100%;
   padding: 0.7rem 1rem;
   margin-bottom: 1rem;
@@ -155,13 +197,13 @@ input, textarea {
   box-shadow: 0 0 8px #00ffff33 inset;
   transition: background 0.3s;
 }
-input:focus, textarea:focus {
+#contact-form input:focus,
+#contact-form textarea:focus {
   background: #005a87;
   outline: none;
   box-shadow: 0 0 15px #00ffff99 inset;
 }
-
-button {
+#contact-form button {
   background: #00ffff;
   color: #001520;
   font-weight: 700;
@@ -171,49 +213,40 @@ button {
   font-size: 1.1rem;
   box-shadow: 0 0 10px #00ffff;
   transition: background 0.3s ease;
+  cursor: pointer;
 }
-button:hover {
+#contact-form button:hover {
   background: #00cccc;
 }
-
-/* COORDONNÉES ET CV */
-.contact-info,
-.map-container {
-  background: #001f3f;
-  border: 1px solid #00ffff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px #00ffff88;
-  margin-bottom: 2rem;
+#contact-form .rgpd-notice {
+  font-size: 0.85rem;
+  color: #70cfff;
+  margin-bottom: 1rem;
 }
 
-/* Ajout flexbox pour centrer contenu */
-/* CSS */
+/* MAP */
 .map-container {
-  max-width: 960px;      /* limite largeur max */
-  margin: 0 auto 2rem;   /* centre horizontalement */
+  max-width: 960px;
+  margin: 0 auto 2rem;
   padding: 0 1rem;
   background: #001f3f;
   border: 1px solid #00ffff;
   border-radius: 12px;
   box-shadow: 0 0 15px #00ffff88;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .map-container iframe {
-  width: 100%;           /* prend toute la largeur du container */
-  height: 300px;         /* hauteur fixe */
+  width: 100%;
+  height: 300px;
   border: none;
   border-radius: 12px;
   box-shadow: 0 0 10px #00ffff55;
-  display: block;        /* évite espace blanc en bas */
+  display: block;
 }
 
-
-
+/* CV DOWNLOAD */
 .cv-download a {
   display: inline-block;
   background: #00ffff;
@@ -223,12 +256,11 @@ button:hover {
   border-radius: 30px;
   box-shadow: 0 0 10px #00ffff;
   transition: 0.3s ease;
+  margin-left: 1.5rem;
 }
-
 .cv-download a:hover {
   background: #00cccc;
 }
-
 
 /* FOOTER */
 footer {
