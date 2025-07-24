@@ -1,8 +1,5 @@
-console.log("Script chargé !");
-
-
 // Canvas réseau (initialisation, animation, explosions)
-canvas = document.getElementById('networkCanvas');
+const canvas = document.getElementById('networkCanvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let width, height, nodes;
@@ -192,6 +189,18 @@ if (canvas) {
   animate();
 }
 
+// Menu hamburger toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('nav ul');
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+  });
+}
+
 // Animation sections au scroll
 const sections = document.querySelectorAll('section');
 
@@ -218,8 +227,6 @@ function checkSections() {
   });
 }
 
-
 window.addEventListener('scroll', checkSections);
 window.addEventListener('load', checkSections);
 checkSections();
-
