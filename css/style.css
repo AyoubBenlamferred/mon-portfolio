@@ -329,6 +329,59 @@ footer {
 
 
 
+/* MENU BURGER */
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: #00ffff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-brand {
+    font-size: 1.2rem;
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    background: #001f3f;
+    z-index: 999;
+    border-top: 1px solid #00ffff;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    padding: 0.8rem 0;
+  }
+}
+
 
 
 
