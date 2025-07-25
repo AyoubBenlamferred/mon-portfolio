@@ -373,7 +373,7 @@ footer {
     flex-direction: row; /* Menu horizontal */
     width: 100%;
     position: absolute;
-    top: 100px; /* <-- ici modifié pour descendre le menu */
+    top: 90px; /* <-- ici modifié pour descendre le menu */
     left: 0;
     background: #001f3f;
     border-top: 1px solid #00ffff;
