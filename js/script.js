@@ -9,17 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
   let width, height;
   let resizeTimeout;
 
-  // Initialisation adaptée QHD
+  // Initialisation adaptée (sans factor d’échelle devicePixelRatio)
   function initCanvas() {
-    const dpr = window.devicePixelRatio || 1;
     width = window.innerWidth;
     height = window.innerWidth <= 480 ? 120 : 180;
-    
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
+
+    // Dimensions canvas sans multiplication par dpr
+    canvas.width = width;
+    canvas.height = height;
     canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
-    ctx.scale(dpr, dpr);
+
+    // Réinitialiser toute transformation du contexte
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
 
     // Réinitialisation des noeuds
     nodes = Array.from({ length: 60 }, () => ({
@@ -107,12 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Interaction améliorée
+  // Interaction améliorée (calcul simple du clic)
   canvas.addEventListener('click', e => {
     const rect = canvas.getBoundingClientRect();
-    const scale = canvas.width / rect.width;
-    const mouseX = (e.clientX - rect.left) * scale;
-    const mouseY = (e.clientY - rect.top) * scale;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
 
     let closestNode = nodes.reduce((closest, node) => {
       const d = Math.hypot(node.x - mouseX, node.y - mouseY);
@@ -136,8 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Arrière-plan dynamique
     const gradient = ctx.createRadialGradient(
-      width/2, height/2, 0, 
-      width/2, height/2, Math.max(width, height)/2
+      width / 2, height / 2, 0,
+      width / 2, height / 2, Math.max(width, height) / 2
     );
     gradient.addColorStop(0, '#001a2a');
     gradient.addColorStop(1, '#000913');
@@ -158,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dx = nodes[i].x - nodes[j].x;
         const dy = nodes[i].y - nodes[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (dist < 150) {
           const alpha = 1 - dist / 150;
           ctx.strokeStyle = `hsla(180, 100%, 70%, ${alpha * 0.3})`;
@@ -184,9 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Gestion des explosions
-    explosions.forEach((exp, index) => {
+    explosions.forEach((exp) => {
       // Ajout d'un nouvel anneau toutes les 200ms (max 3)
-      if (Date.now() - exp.createdAt > explosions.length * 200 && exp.rings.length < 3) {
+      if (Date.now() - exp.createdAt > exp.rings.length * 200 && exp.rings.length < 3) {
         exp.rings.push(new Ring(exp.x, exp.y));
       }
 
@@ -203,19 +204,19 @@ document.addEventListener('DOMContentLoaded', function() {
       exp.particles = exp.particles.filter(p => p.alpha > 0.05);
     });
 
-    explosions = explosions.filter(exp => 
+    explosions = explosions.filter(exp =>
       exp.particles.length > 0 || exp.rings.some(r => r.alpha > 0)
     );
 
     requestAnimationFrame(animate);
   }
 
-  // Initialisation
+  // Initialisation et animation
   initCanvas();
   animate();
 });
 
-// Menu hamburger (conservé identique)
+// Menu hamburger (inchangé)
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('nav ul');
 
@@ -227,7 +228,7 @@ if (navToggle && navMenu) {
   });
 }
 
-// Animation scroll optimisée
+// Animation scroll optimisée (inchangée)
 function checkSections() {
   const triggerBottom = window.innerHeight * 0.85;
   document.querySelectorAll('section').forEach(section => {
