@@ -315,10 +315,11 @@ footer {
 }
 
 
+
 /* PROFIL - Style image */
 #profil img {
   display: block;
-  margin: 2rem auto 2rem auto; /* centrée avec marge en haut et en bas */
+  margin: 2rem auto 2rem auto;
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -326,6 +327,11 @@ footer {
   border: 3px solid #00ffff;
   box-shadow: 0 0 15px #00ffffaa;
 }
+
+
+
+
+
 
 
 
@@ -363,13 +369,18 @@ footer {
   nav ul {
     display: none;
     flex-direction: column;
-    width: 100%;
-    position: absolute;
+    width: 250px;          /* largeur fixe plus petite */
+    max-width: 80vw;
+    position: fixed;       /* fixe sur l'écran */
     top: 56px;
     left: 0;
+    height: calc(100vh - 56px);
     background: #001f3f;
     z-index: 999;
     border-top: 1px solid #00ffff;
+    border-right: 1px solid #00ffff;
+    box-shadow: 2px 0 8px rgba(0, 255, 255, 0.4);
+    overflow-y: auto;
   }
 
   nav ul.active {
@@ -380,8 +391,19 @@ footer {
     text-align: center;
     padding: 0.8rem 0;
   }
-}
 
+  /* Overlay quand menu actif */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+}
 
 
 

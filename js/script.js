@@ -219,14 +219,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Menu hamburger (inchangé)
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('nav ul');
+const body = document.body;
 
 if (navToggle && navMenu) {
   navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
     navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+
+    if (navMenu.classList.contains('active')) {
+      body.classList.add('menu-open');
+    } else {
+      body.classList.remove('menu-open');
+    }
   });
 }
+
 
 // Animation scroll optimisée (inchangée)
 function checkSections() {
