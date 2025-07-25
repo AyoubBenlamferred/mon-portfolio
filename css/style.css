@@ -345,38 +345,76 @@ footer {
   cursor: pointer;
 }
 
-/* Responsive petits écrans */
+/* Style de la barre de navigation */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #001f3f;
+  padding: 0.5rem 1rem;
+  position: relative;
+  user-select: none;
+}
+
+/* Nom de marque tronqué sur mobile */
+.nav-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+  max-width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Menu horizontal par défaut (desktop) */
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 1.2rem;
+}
+
+nav ul li a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #66ffff;
+}
+
+/* Responsive pour petits écrans */
 @media (max-width: 768px) {
   nav {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
   }
 
   .nav-toggle {
     display: block;
   }
 
-  .nav-brand {
-    font-size: 1.2rem;
-    max-width: 60%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   nav ul {
     display: none;
     flex-direction: column;
-    width: 100%;
+    width: 220px;
     position: absolute;
     top: 56px;
     left: 0;
     background: #001f3f;
+    border: 1px solid #00ffff;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    max-height: 300px;
+    overflow-y: auto;
     z-index: 999;
-    border-top: 1px solid #00ffff;
-    box-shadow: 0 4px 8px rgba(0,255,255,0.3);
   }
 
   nav ul.active {
@@ -385,8 +423,29 @@ footer {
 
   nav ul li {
     text-align: center;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #00ffff;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #004d66;
+    margin: 0;
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Overlay semi-transparent quand menu ouvert */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 998;
   }
 }
 
