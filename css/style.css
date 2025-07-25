@@ -345,10 +345,10 @@ footer {
   cursor: pointer;
 }
 
-/* Responsive pour les petits écrans */
+/* Responsive petits écrans */
 @media (max-width: 768px) {
   nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
@@ -369,18 +369,14 @@ footer {
   nav ul {
     display: none;
     flex-direction: column;
-    width: 250px;          /* largeur fixe plus petite */
-    max-width: 80vw;
-    position: fixed;       /* fixe sur l'écran */
+    width: 100%;
+    position: absolute;
     top: 56px;
     left: 0;
-    height: calc(100vh - 56px);
     background: #001f3f;
     z-index: 999;
     border-top: 1px solid #00ffff;
-    border-right: 1px solid #00ffff;
-    box-shadow: 2px 0 8px rgba(0, 255, 255, 0.4);
-    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0,255,255,0.3);
   }
 
   nav ul.active {
@@ -390,18 +386,7 @@ footer {
   nav ul li {
     text-align: center;
     padding: 0.8rem 0;
-  }
-
-  /* Overlay quand menu actif */
-  body.menu-open::before {
-    content: "";
-    position: fixed;
-    top: 56px;
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 56px);
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
+    border-bottom: 1px solid #00ffff;
   }
 }
 
