@@ -330,11 +330,6 @@ footer {
 
 
 
-
-
-
-
-
 /* MENU BURGER */
 .nav-toggle {
   display: none;
@@ -379,7 +374,7 @@ footer {
     left: 0;
     width: 100%;
     background: #001f3f;
-    padding: 0.5rem 0 2rem 0; /* padding top 0.5rem, bottom 2rem */
+    padding: 0.5rem 0 0.5rem 0; /* padding top 0.5rem, bottom 2rem */
     margin-bottom: 20px; /* Espace visible sous le menu */
     overflow-x: auto;
     white-space: nowrap;
