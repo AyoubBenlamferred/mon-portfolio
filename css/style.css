@@ -343,6 +343,7 @@ footer {
   color: #00ffff;
   border: none;
   cursor: pointer;
+  z-index: 1000;
 }
 
 /* Responsive pour petits écrans */
@@ -352,8 +353,9 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 1rem;
     position: relative;
+    min-height: 100px; /* ← s'assurer d'une hauteur suffisante */
   }
 
   .nav-toggle {
@@ -370,17 +372,16 @@ footer {
 
   nav ul {
     display: none;
-    flex-direction: row; /* Menu horizontal */
+    flex-direction: row;
     width: 100%;
     position: absolute;
-    top: 90px; /* <-- ici modifié pour descendre le menu */
+    top: 100px; /* ← ça fonctionnera bien si nav a une hauteur suffisante */
     left: 0;
     background: #001f3f;
     border-top: 1px solid #00ffff;
     z-index: 999;
-
-    overflow-x: auto;  /* Scroll horizontal si overflow */
-    white-space: nowrap; /* Pas de retour à la ligne */
+    overflow-x: auto;
+    white-space: nowrap;
     padding: 0.5rem 0;
   }
 
@@ -406,5 +407,6 @@ footer {
     color: #66ffff;
   }
 }
+
 
 
