@@ -374,16 +374,17 @@ footer {
     display: none;
     flex-direction: row;
     position: absolute;
-    top: 70px; /* ← plus bas qu'avant */
+    top: 100%; /* Collé juste en dessous de la navbar */
     left: 0;
     width: 100%;
     background: #001f3f;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     overflow-x: auto;
     white-space: nowrap;
     z-index: 999;
     border-top: 1px solid #00ffff;
     box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    margin-top: 0;
   }
 
   nav ul.active {
@@ -409,7 +410,5 @@ footer {
     color: #66ffff;
   }
 }
-
-
 
 
