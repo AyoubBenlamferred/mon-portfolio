@@ -352,7 +352,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    /* padding retiré pour éviter espace sous la nav */
+    /* padding retiré pour éviter espace au-dessus */
     /* padding: 1rem; */
     position: relative;
     background: #001f3f;
@@ -375,12 +375,12 @@ footer {
     display: none;
     flex-direction: row;
     position: absolute;
-    top: 100%; /* Collé juste en dessous de la navbar */
+    top: 100%; /* menu collé juste sous la nav */
     left: 0;
     width: 100%;
     background: #001f3f;
-    /* padding vertical réduit, plus léger sur les côtés pour bien coller */
-    padding: 0.5rem 0;
+    /* padding-bottom augmenté pour décaler uniquement le bas */
+    padding: 0.5rem 0 1.5rem 0; /* haut droite bas gauche */
     overflow-x: auto;
     white-space: nowrap;
     z-index: 999;
@@ -412,6 +412,3 @@ footer {
     color: #66ffff;
   }
 }
-
-
-
