@@ -1,9 +1,10 @@
+
 /* RESET ET BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  
 }
 
 a {
@@ -316,20 +318,6 @@ footer {
 
 
 
-/* PROFIL - Style image */
-#profil img {
-  display: block;
-  margin: 2rem auto 2rem auto;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #00ffff;
-  box-shadow: 0 0 15px #00ffffaa;
-}
-
-
-
 /* MENU BURGER */
 .nav-toggle {
   display: none;
@@ -413,5 +401,13 @@ footer {
   nav ul li a:hover,
   nav ul li a:focus {
     color: #66ffff;
+  }
+}
+
+
+@media (max-width: 375px) {
+  body {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
