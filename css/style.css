@@ -352,7 +352,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    /* padding retiré pour éviter espace au-dessus */
+    /* padding retiré pour pas créer d’espace au-dessus */
     /* padding: 1rem; */
     position: relative;
     background: #001f3f;
@@ -375,18 +375,26 @@ footer {
     display: none;
     flex-direction: row;
     position: absolute;
-    top: 100%; /* menu collé juste sous la nav */
+    top: 100%; /* Collé juste sous la nav */
     left: 0;
     width: 100%;
     background: #001f3f;
-    /* padding-bottom augmenté pour décaler uniquement le bas */
-    padding: 0.5rem 0 1.5rem 0; /* haut droite bas gauche */
+    padding: 0.5rem 0; /* padding haut et bas */
+    margin-bottom: 20px; /* espace visible sous le menu */
     overflow-x: auto;
     white-space: nowrap;
     z-index: 999;
     border-top: 1px solid #00ffff;
-    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3); /* ombre portée plus grande */
     margin-top: 0;
+  }
+
+  /* Pseudo-élément pour espace transparent supplémentaire sous le menu */
+  nav ul::after {
+    content: "";
+    display: block;
+    height: 15px; /* ajustable */
+    width: 100%;
   }
 
   nav ul.active {
